@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply transition-colors duration-300;
+}
+
+.dark body {
+  @apply bg-gray-950 text-gray-100;
+}
+
+body:not(.dark) {
+  @apply bg-gray-50 text-gray-900;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-md font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.dark .btn {
+  @apply focus:ring-offset-gray-900;
+}
+
+.btn:not(.dark) {
+  @apply focus:ring-offset-gray-50;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+}
+
+.btn-secondary {
+  @apply transition-colors duration-200;
+}
+
+.dark .btn-secondary {
+  @apply bg-gray-700 text-gray-100 hover:bg-gray-600 focus:ring-gray-500;
+}
+
+.btn-secondary:not(.dark) {
+  @apply bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-400;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+}
+
+.form-input {
+  @apply w-full px-3 py-2 border rounded-md shadow-sm transition-colors duration-200 focus:outline-none focus:ring-blue-500 focus:border-blue-500;
+}
+
+.dark .form-input {
+  @apply border-gray-700 bg-gray-800 text-gray-100;
+}
+
+.form-input:not(.dark) {
+  @apply border-gray-300 bg-white text-gray-900;
+}
+
+.form-label {
+  @apply block text-sm font-medium mb-1 transition-colors duration-200;
+}
+
+.dark .form-label {
+  @apply text-gray-300;
+}
+
+.form-label:not(.dark) {
+  @apply text-gray-700;
+}
+
+.form-error {
+  @apply mt-1 text-sm text-red-500;
+}
+
+.card {
+  @apply rounded-lg shadow-md overflow-hidden border transition-colors duration-200;
+}
+
+.dark .card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.card:not(.dark) {
+  @apply bg-white border-gray-200;
+}
+
+/* Add these animation classes for the form transitions */
+.slide-in-right {
+  animation: slideInRight 0.3s forwards;
+}
+
+.slide-out-left {
+  animation: slideOutLeft 0.3s forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.3s forwards;
+}
+
+.slide-out-right {
+  animation: slideOutRight 0.3s forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes grow {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
