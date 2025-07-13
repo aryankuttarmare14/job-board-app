@@ -81,7 +81,7 @@ const JobListings = () => {
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Discover thousands of opportunities from top companies around the world
-          </p>
+        </p>
         </div>
       </div>
 

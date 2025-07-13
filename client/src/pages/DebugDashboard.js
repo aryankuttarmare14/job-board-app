@@ -99,15 +99,15 @@ const DebugDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">🔍 Dashboard Debug Information</h1>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-4 sm:py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 border border-gray-200 dark:border-gray-700">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-gray-800 dark:text-white mb-6 sm:mb-8">🔍 Dashboard Debug Information</h1>
 
           {/* Authentication Status */}
-          <div className="mb-8 p-4 bg-blue-50 rounded-lg">
-            <h2 className="text-xl font-semibold mb-4 text-blue-800">Authentication Status</h2>
-            <div className="space-y-2">
+          <div className="mb-6 sm:mb-8 p-3 sm:p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+            <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-blue-800 dark:text-blue-200">Authentication Status</h2>
+            <div className="space-y-1 sm:space-y-2 text-sm sm:text-base">
               <p>
                 <strong>Authenticated:</strong> {isAuthenticated ? "✅ Yes" : "❌ No"}
               </p>
@@ -133,27 +133,27 @@ const DebugDashboard = () => {
           </div>
 
           {/* API Test Results */}
-          <div className="mb-8 p-4 bg-yellow-50 rounded-lg">
-            <h2 className="text-xl font-semibold mb-4 text-yellow-800">API Test Results</h2>
+          <div className="mb-6 sm:mb-8 p-3 sm:p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+            <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-yellow-800 dark:text-yellow-200">API Test Results</h2>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base">
               <div>
                 <h3 className="font-semibold">GET /api/auth/me:</h3>
                 {debugInfo.meTest ? (
-                  <p className="text-green-600">✅ Success - User data retrieved</p>
+                  <p className="text-green-600 dark:text-green-400">✅ Success - User data retrieved</p>
                 ) : (
-                  <p className="text-red-600">❌ Failed</p>
+                  <p className="text-red-600 dark:text-red-400">❌ Failed</p>
                 )}
               </div>
 
               <div>
                 <h3 className="font-semibold">GET /api/applications/me:</h3>
                 {debugInfo.applicationsTest ? (
-                  <p className="text-green-600">
+                  <p className="text-green-600 dark:text-green-400">
                     ✅ Success - {debugInfo.applicationsTest.data?.length || 0} applications found
                   </p>
                 ) : (
-                  <p className="text-red-600">❌ Failed</p>
+                  <p className="text-red-600 dark:text-red-400">❌ Failed</p>
                 )}
               </div>
 
@@ -161,9 +161,9 @@ const DebugDashboard = () => {
                 <div>
                   <h3 className="font-semibold">GET /api/jobs/employer/myjobs:</h3>
                   {debugInfo.jobsTest ? (
-                    <p className="text-green-600">✅ Success - {debugInfo.jobsTest.data?.length || 0} jobs found</p>
+                    <p className="text-green-600 dark:text-green-400">✅ Success - {debugInfo.jobsTest.data?.length || 0} jobs found</p>
                   ) : (
-                    <p className="text-red-600">❌ Failed</p>
+                    <p className="text-red-600 dark:text-red-400">❌ Failed</p>
                   )}
                 </div>
               )}
@@ -172,11 +172,11 @@ const DebugDashboard = () => {
 
           {/* API Errors */}
           {debugInfo.errors.length > 0 && (
-            <div className="mb-8 p-4 bg-red-50 rounded-lg">
-              <h2 className="text-xl font-semibold mb-4 text-red-800">API Errors</h2>
-              <ul className="space-y-2">
+            <div className="mb-6 sm:mb-8 p-3 sm:p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+              <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-red-800 dark:text-red-200">API Errors</h2>
+              <ul className="space-y-1 sm:space-y-2 text-sm sm:text-base">
                 {debugInfo.errors.map((error, index) => (
-                  <li key={index} className="text-red-600">
+                  <li key={index} className="text-red-600 dark:text-red-400">
                     ❌ {error}
                   </li>
                 ))}
@@ -185,80 +185,43 @@ const DebugDashboard = () => {
           )}
 
           {/* Actions */}
-          <div className="mb-8 p-4 bg-purple-50 rounded-lg">
-            <h2 className="text-xl font-semibold mb-4 text-purple-800">Debug Actions</h2>
-            <div className="space-y-4">
+          <div className="mb-6 sm:mb-8 p-3 sm:p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+            <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-purple-800 dark:text-purple-200">Debug Actions</h2>
+            <div className="space-y-3 sm:space-y-4">
               <button
                 onClick={runDebugTests}
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-4"
+                className="bg-blue-500 text-white px-3 sm:px-4 py-2 rounded hover:bg-blue-600 mr-2 sm:mr-4 text-xs sm:text-sm"
               >
                 🔄 Re-run Tests
               </button>
 
               <button
                 onClick={testDirectEndpoint}
-                className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 mr-4"
+                className="bg-purple-500 text-white px-3 sm:px-4 py-2 rounded hover:bg-purple-600 mr-2 sm:mr-4 text-xs sm:text-sm"
               >
                 🧪 Test Direct Endpoint
               </button>
 
-              <button onClick={clearAllData} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
-                🗑️ Clear All Data & Reload
-              </button>
-
               <button
-                onClick={() => (window.location.href = "/dashboard")}
-                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 ml-4"
+                onClick={clearAllData}
+                className="bg-red-500 text-white px-3 sm:px-4 py-2 rounded hover:bg-red-600 text-xs sm:text-sm"
               >
-                📊 Try Dashboard Again
+                🗑️ Clear All Data
               </button>
             </div>
           </div>
 
-          {/* Backend Check Instructions */}
-          <div className="mb-8 p-4 bg-orange-50 rounded-lg">
-            <h2 className="text-xl font-semibold mb-4 text-orange-800">Backend Check Instructions</h2>
-            <div className="space-y-2 text-sm">
-              <p>
-                <strong>1. Check if backend is running:</strong>
-              </p>
-              <code className="bg-gray-100 p-1 rounded">http://localhost:5000/api/applications/me</code>
-
-              <p className="mt-4">
-                <strong>2. Check server console for errors</strong>
-              </p>
-
-              <p className="mt-4">
-                <strong>3. Verify route exists in applicationRoutes.js:</strong>
-              </p>
-              <code className="bg-gray-100 p-1 rounded">
-                router.get("/me", [protect, authorize("job_seeker")], ...)
-              </code>
-
-              <p className="mt-4">
-                <strong>4. Check server.js has:</strong>
-              </p>
-              <code className="bg-gray-100 p-1 rounded">app.use("/api/applications", applicationRoutes)</code>
+          {/* Token Decoder */}
+          {token && (
+            <div className="mb-6 sm:mb-8 p-3 sm:p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-800 dark:text-gray-200">Token Decoder</h2>
+              <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded text-xs sm:text-sm overflow-x-auto">
+                <pre className="text-gray-800 dark:text-gray-200">
+                  {JSON.stringify(decodeToken(token), null, 2)}
+                </pre>
+              </div>
             </div>
-          </div>
-
-          {/* Raw Debug Data */}
-          <div className="p-4 bg-gray-50 rounded-lg">
-            <h2 className="text-xl font-semibold mb-4 text-gray-800">Raw Debug Data</h2>
-            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
-              {JSON.stringify(
-                {
-                  user,
-                  isAuthenticated,
-                  tokenExists: !!token,
-                  debugInfo,
-                  apiUrl: API_URL,
-                },
-                null,
-                2,
-              )}
-            </pre>
-          </div>
+          )}
         </div>
       </div>
     </div>

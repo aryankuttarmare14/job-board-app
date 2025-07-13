@@ -92,19 +92,23 @@ const Register = () => {
   }
 
   return (
-    <div className="max-w-md mx-auto my-10">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 border border-gray-200 dark:border-gray-700">
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-white">Create an Account</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-sm sm:max-w-md w-full">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">Create an Account</h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Join our platform and start your journey</p>
+          </div>
 
         {registerError && (
-          <div className="bg-red-900 border border-red-800 text-red-200 px-4 py-3 rounded relative mb-4" role="alert">
-            <span className="block sm:inline">{registerError}</span>
+            <div className="bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-600 text-red-700 dark:text-red-200 px-3 sm:px-4 py-2 sm:py-3 rounded text-sm mb-4 sm:mb-6" role="alert">
+              {registerError}
           </div>
         )}
 
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1 sm:mb-2">
               Full Name
             </label>
             <input
@@ -113,14 +117,18 @@ const Register = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className={`form-input bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 ${formErrors.name ? "border-red-500" : ""}`}
+                className={`w-full px-3 sm:px-4 py-2 sm:py-3 border text-sm sm:text-base rounded-md bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+                  formErrors.name 
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-500" 
+                    : "border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500"
+                } focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800`}
               placeholder="John Doe"
             />
-            {formErrors.name && <p className="form-error">{formErrors.name}</p>}
+              {formErrors.name && <p className="mt-1 text-xs sm:text-sm text-red-600 dark:text-red-400">{formErrors.name}</p>}
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1 sm:mb-2">
               Email Address
             </label>
             <input
@@ -129,14 +137,18 @@ const Register = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`form-input bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 ${formErrors.email ? "border-red-500" : ""}`}
+                className={`w-full px-3 sm:px-4 py-2 sm:py-3 border text-sm sm:text-base rounded-md bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+                  formErrors.email 
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-500" 
+                    : "border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500"
+                } focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800`}
               placeholder="your@email.com"
             />
-            {formErrors.email && <p className="form-error">{formErrors.email}</p>}
+              {formErrors.email && <p className="mt-1 text-xs sm:text-sm text-red-600 dark:text-red-400">{formErrors.email}</p>}
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1 sm:mb-2">
               Password
             </label>
             <input
@@ -145,17 +157,18 @@ const Register = () => {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className={`form-input bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 ${formErrors.password ? "border-red-500" : ""}`}
+                className={`w-full px-3 sm:px-4 py-2 sm:py-3 border text-sm sm:text-base rounded-md bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+                  formErrors.password 
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-500" 
+                    : "border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500"
+                } focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800`}
               placeholder="••••••••"
             />
-            {formErrors.password && <p className="form-error">{formErrors.password}</p>}
+              {formErrors.password && <p className="mt-1 text-xs sm:text-sm text-red-600 dark:text-red-400">{formErrors.password}</p>}
           </div>
 
-          <div className="mb-4">
-            <label
-              htmlFor="confirmPassword"
-              className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1"
-            >
+            <div>
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1 sm:mb-2">
               Confirm Password
             </label>
             <input
@@ -164,15 +177,19 @@ const Register = () => {
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
-              className={`form-input bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 ${formErrors.confirmPassword ? "border-red-500" : ""}`}
+                className={`w-full px-3 sm:px-4 py-2 sm:py-3 border text-sm sm:text-base rounded-md bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+                  formErrors.confirmPassword 
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-500" 
+                    : "border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500"
+                } focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800`}
               placeholder="••••••••"
             />
-            {formErrors.confirmPassword && <p className="form-error">{formErrors.confirmPassword}</p>}
+              {formErrors.confirmPassword && <p className="mt-1 text-xs sm:text-sm text-red-600 dark:text-red-400">{formErrors.confirmPassword}</p>}
           </div>
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">Account Type</label>
-            <div className="mt-1 flex space-x-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2 sm:mb-3">Account Type</label>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <label className="inline-flex items-center">
                 <input
                   type="radio"
@@ -199,8 +216,8 @@ const Register = () => {
           </div>
 
           {formData.role === "employer" && (
-            <div className="mb-4">
-              <label htmlFor="company" className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">
+              <div>
+                <label htmlFor="company" className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1 sm:mb-2">
                 Company Name
               </label>
               <input
@@ -209,28 +226,33 @@ const Register = () => {
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
-                className={`form-input bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 ${formErrors.company ? "border-red-500" : ""}`}
+                  className={`w-full px-3 sm:px-4 py-2 sm:py-3 border text-sm sm:text-base rounded-md bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+                    formErrors.company 
+                      ? "border-red-500 focus:border-red-500 focus:ring-red-500" 
+                      : "border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500"
+                  } focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800`}
                 placeholder="Acme Inc."
               />
-              {formErrors.company && <p className="form-error">{formErrors.company}</p>}
+                {formErrors.company && <p className="mt-1 text-xs sm:text-sm text-red-600 dark:text-red-400">{formErrors.company}</p>}
             </div>
           )}
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+              className="w-full py-2 sm:py-3 px-4 rounded-md text-sm sm:text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
           >
             Register
           </button>
         </form>
 
-        <div className="mt-4 text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="mt-6 sm:mt-8 text-center">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-400 hover:text-blue-300">
+              <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400">
               Login here
             </Link>
           </p>
+          </div>
         </div>
       </div>
     </div>
