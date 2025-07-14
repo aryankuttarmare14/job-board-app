@@ -14,6 +14,13 @@ import adminRoutes from "./routes/adminRoutes.js"
 // Load env vars
 dotenv.config()
 
+// Validate environment variables
+if (!process.env.MONGO_URI) {
+  console.error("❌ MONGO_URI environment variable is not set!")
+  console.error("Please create a .env file in the server directory with your MongoDB Atlas connection string")
+  process.exit(1)
+}
+
 // Connect to database
 connectDB()
 

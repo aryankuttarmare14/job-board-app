@@ -7,8 +7,18 @@ import Application from "./models/Application.js"
 // Load env vars
 dotenv.config()
 
+// Validate environment variables
+if (!process.env.MONGO_URI) {
+  console.error("❌ MONGO_URI environment variable is not set!")
+  console.error("Please create a .env file with your MongoDB Atlas connection string")
+  process.exit(1)
+}
+
 // Connect to database
-mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/jobboard")
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 
 const seedData = async () => {
   try {
