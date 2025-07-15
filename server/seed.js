@@ -129,6 +129,7 @@ const seedData = async () => {
         job: jobs[1]._id, // Backend Developer
         coverLetter: "I am very interested in this backend developer position...",
         resume: "resume_backend_dev.pdf",
+        resumePath: "/uploads/dummy-resume.pdf", // Added resumePath
         status: "pending",
       },
       {
@@ -136,6 +137,7 @@ const seedData = async () => {
         job: jobs[2]._id, // UX/UI Designer
         coverLetter: "My design skills would be perfect for this role...",
         resume: "resume_ux_designer.pdf",
+        resumePath: "/uploads/dummy-resume.pdf", // Added resumePath
         status: "pending",
       },
     ])
